@@ -1,0 +1,48 @@
+﻿@model FleetCarePro.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = null; // بدون هيدر وفوتر
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Login - FleetCarePro</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center vh-100">
+
+    <div class="card shadow border-0 p-4" style="width: 100%; max-width: 400px;">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold text-primary">FleetCarePro</h3>
+            <p class="text-muted small">Enter your credentials to access the system</p>
+        </div>
+
+        <form asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3 small"></div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                <label asp-for="Email"></label>
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Password" class="form-control" placeholder="Password" />
+                <label asp-for="Password"></label>
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="RememberMe" class="form-check-input" />
+                <label asp-for="RememberMe" class="form-check-label"></label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2">Sign In</button>
+        </form>
+    </div>
+
+</body>
+</html>

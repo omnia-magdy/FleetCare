@@ -1,0 +1,63 @@
+﻿@model FleetCarePro.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Vehicle Details";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>@Model.Make @Model.Model (@Model.Year)</h2>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 mb-4">
+            <div class="card shadow-sm">
+                @if (!string.IsNullOrEmpty(Model.VehicleImageURL))
+                {
+                    <img src="@Model.VehicleImageURL" class="card-img-top" alt="Vehicle Image" style="max-height: 350px; object-fit: cover;">
+                }
+                else
+                {
+                    <div class="bg-light text-center py-5 text-muted">No Image Available</div>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="card-title mb-0">Vehicle Information</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">VIN:</dt>
+                        <dd class="col-sm-8">@Model.VIN</dd>
+
+                        <dt class="col-sm-4">License Plate:</dt>
+                        <dd class="col-sm-8">@Model.LicensePlate</dd>
+
+                        <dt class="col-sm-4">Status:</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge bg-@(Model.Status == FleetCarePro.Models.VehicleStatus.Active ? "success" : "danger")">
+                                @Model.Status
+                            </span>
+                        </dd>
+
+                        <dt class="col-sm-4">Mileage:</dt>
+                        <dd class="col-sm-8">@Model.Mileage.ToString("N0") km</dd>
+
+                        <dt class="col-sm-4">Purchase Price:</dt>
+                        <dd class="col-sm-8">$@Model.PurchasePrice.ToString("N2")</dd>
+
+                        <dt class="col-sm-4">Assigned Driver:</dt>
+                        <dd class="col-sm-8">@(Model.AssignedDriver?.UserName ?? "Unassigned")</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

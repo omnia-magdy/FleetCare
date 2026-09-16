@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FleetCarePro.ViewComponents.OverdueVehicleItem>
+
+<div class="card border-danger mb-4 shadow-sm">
+    <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="bi bi-exclamation-triangle-fill me-2"></i>Overdue Maintenance Alert</h5>
+        <span class="badge bg-light text-danger">@Model.Count() Vehicles</span>
+    </div>
+    <div class="card-body p-0">
+        @if (!Model.Any())
+        {
+            <div class="p-3 text-success text-center">
+                All vehicles have updated maintenance records within the last 6 months.
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>License Plate</th>
+                            <th>Last Service Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Make @item.Model</td>
+                                <td><span class="badge bg-secondary">@item.LicensePlate</span></td>
+                                <td>
+                                    @(item.LastServiceDate.HasValue
+                                                                ? item.LastServiceDate.Value.ToString("yyyy-MM-dd")
+                                                                : "No Service Recorded")
+                        </td>
+                        <td>
+                            <a asp-controller="ServiceRecords" asp-action="Create" asp-route-vehicleId="@item.VehicleId" class="btn btn-sm btn-outline-danger">
+                                Schedule Service
+                            </a>
+                        </td>
+                    </tr>
+                                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

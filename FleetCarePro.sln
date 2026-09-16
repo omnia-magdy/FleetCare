@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36915.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetCarePro", "FleetCarePro\FleetCarePro.csproj", "{EE450EE5-AC1E-4C49-94E2-DA3EC64E8C0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE450EE5-AC1E-4C49-94E2-DA3EC64E8C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE450EE5-AC1E-4C49-94E2-DA3EC64E8C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE450EE5-AC1E-4C49-94E2-DA3EC64E8C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE450EE5-AC1E-4C49-94E2-DA3EC64E8C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC283A76-B7C8-402A-890A-9196F3DD70BD}
+	EndGlobalSection
+EndGlobal

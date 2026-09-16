@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container-fluid py-4">
+    <!-- Welcome Banner -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card bg-primary text-white shadow border-0">
+                <div class="card-body p-4 d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="fw-bold mb-1">Welcome back to FleetCarePro! 👋</h2>
+                        <p class="mb-0 text-white-50">Manage vehicles, track maintenance, and monitor costs efficiently.</p>
+                    </div>
+                    <div>
+                        <a asp-controller="ServiceRecords" asp-action="Create" class="btn btn-light text-primary fw-bold shadow-sm">
+                            + Log New Service
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overview Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <div class="d-flex align-items-center">
+                    <div class="bg-primary-subtle text-primary p-3 rounded me-3">
+                        <i class="bi bi-truck fs-3"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-muted mb-1">Fleet Management</h6>
+                        <a asp-controller="Vehicles" asp-action="Index" class="fw-bold text-decoration-none">View All Vehicles &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <div class="d-flex align-items-center">
+                    <div class="bg-success-subtle text-success p-3 rounded me-3">
+                        <i class="bi bi-tools fs-3"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-muted mb-1">Service History</h6>
+                        <a asp-controller="ServiceRecords" asp-action="Index" class="fw-bold text-decoration-none">View Logs &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-3">
+                <div class="d-flex align-items-center">
+                    <div class="bg-warning-subtle text-warning p-3 rounded me-3">
+                        <i class="bi bi-shield-lock fs-3"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-muted mb-1">System Security</h6>
+                        <span class="badge bg-success">Authenticated</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- View Components Section -->
+    <div class="row g-4">
+        <div class="col-md-6">
+            <vc:fleet-cost-summary />
+        </div>
+        <div class="col-md-6">
+            <vc:overdue-maintenance />
+        </div>
+    </div>
+
+</div>
